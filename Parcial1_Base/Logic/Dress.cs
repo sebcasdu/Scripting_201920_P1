@@ -30,6 +30,7 @@
             Green,
             Pink
         }
+           
 
         /// <summary>
         /// This dress' color

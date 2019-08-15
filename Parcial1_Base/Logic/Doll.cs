@@ -7,6 +7,8 @@ namespace Parcial1_Base.Logic
     /// </summary>
     public class Doll : IClonable<Doll>
     {
+
+       
         /// <summary>
         /// The accessories collection.
         /// </summary>
@@ -20,19 +22,53 @@ namespace Parcial1_Base.Logic
         /// <summary>
         /// Whether the doll can be included in the contest.
         /// </summary>
-        public bool CanParticipate { get => false; }
+        public bool CanParticipate
+        {
+            set
+            {
+                CanParticipate = value;
 
+            }
+            get
+            {
+                bool resultado = false;
+                if (accessories.Contains(Dress))
+                {
+                    resultado = true;
+
+                }
+                return resultado;
+            }
+        }
+             
         /// <summary>
         /// The total accessories count worn by the doll.
         /// </summary>
-        public int TotalAccessories { get => accessories.Count; }
+        public int TotalAccessories {
+            get { accessories.Count; }
+            set { }
 
-        public int BraceletCount { get => 0; }
+
+             }
+
+        public int BraceletCount { get { 0; } }
 
         /// <summary>
         /// The total style score, affected by each worn accessory.
         /// </summary>
-        public int Style { get => 0; }
+        public int Style {
+            get {
+                int puntosTotales=0;
+
+                for (int i = 0; i < accessories.Count; i++) {
+                    puntosTotales += accessories[i].Style;
+                }
+                return puntosTotales;
+            }
+            set { Style = value; }
+
+           
+        }
 
         public Doll(string name)
         {
@@ -58,6 +94,28 @@ namespace Parcial1_Base.Logic
         /// <returns>True if the doll successfully wore the accessory. False otherwise</returns>
         public bool Wear(Accessory a)
         {
+
+            if (a is Dress) {
+                if (accessories.Contains(Dress) == null)
+                {
+                    accessories.Add(a);
+                }
+            }
+            if (a is Necklace)
+            {
+                if (accessories.Contains(Necklace) == null)
+                {
+
+                    accessories.Add(a);
+                    if () { }
+                    
+                }
+            }
+
+
+
+
+
             return false;
         }
 

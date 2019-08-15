@@ -12,7 +12,7 @@ namespace Parcial1_Base.Logic
         /// <summary>
         /// Returns the total contestants count for a pageant round.
         /// </summary>
-        public int TotalContestants { get => contestants.Count; }
+        public int TotalContestants { get { contestants.Count; } }
 
         /// <summary>
         /// Adds a contestant to the pageant.
@@ -22,6 +22,12 @@ namespace Parcial1_Base.Logic
         public bool AddContestant(Doll d)
         {
             bool result = false;
+            if (TotalContestants < 4) {
+                contestants.Add(d);
+                result = true;
+            }
+
+          
 
             return result;
         }
@@ -40,6 +46,7 @@ namespace Parcial1_Base.Logic
         /// <returns>The winner Doll</returns>
         public Doll GetWinner()
         {
+            int PuntajeAlto= 0;
             Doll winner = null;
 
             switch (contestants.Count)
@@ -49,7 +56,11 @@ namespace Parcial1_Base.Logic
                     winner = contestants[0];
                     break;
 
-                default:
+                default: for (int i = 0; i < contestants.Count; i++) {
+
+                        contestants[i].Style 
+
+                    }
                     // Sorts the contestants and return the one with the highest style score.
                     break;
             }
